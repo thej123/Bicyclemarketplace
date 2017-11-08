@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login</title>
+</head>
+<body>
+  <h2>Bike of the Day</h2>
+  <fieldset>
+    <div class=inline>
+      {{image}} Image
+    </div>
+    <div class=inline>
+      {{title}} Title
+      {{description}} Description
+    </div>
+    <div class=inline>
+      {{price}} price
+      {{location}} Location
+    </div>
+  </fieldset>
+
+  <fieldset class=inline>
+      <form (submit)="Login()" #LoginData='ngForm'>
+          *Email: <input name='email'
+          type="text"
+          required
+          pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"          
+          [(ngModel)]="login.email"
+          #email='ngModel'
+          />
+          <span *ngIf=(email.errors)> Give me valid email!</span>
+          <br>
+          *Password <input name='password'
+          type="text"
+          required
+          minlength="5"
+          [(ngModel)]="login.password"
+          />  
+          <span *ngIf=(email.errors)> Please enter valid password!</span>
+          <br>
+          <input class='green' [disabled]='LoginData.invalid' type="submit" value="Login">
+      </form>
+  </fieldset>
+
+
+  <fieldset class=inline>
+  <form (submit)="Register()"
+  #RegData='ngForm'>
+      <div class='inputs'>
+        *First Name: 
+        <input
+          type="text" 
+          name="firstName" 
+          required 
+          minlength="3" 
+          maxlength="24"
+          [(ngModel)]="user.firstName"
+          #firstName='ngModel'
+        />
+        <span *ngIf=(firstName.errors)> First name should be 3 characters long </span>
+        <!-- <span *ngIf=(firstName.valid)> {{ firstName.valid | json }} </span> -->
+      </div>
+      <div class='inputs'>
+        *Last Name: 
+        <input
+          type="text" 
+          name="lastName" 
+          required 
+          minlength="3" 
+          maxlength="24"
+          [(ngModel)]="user.lastName"
+          #lastName='ngModel'
+        />
+        <span *ngIf=(lastName.errors)> {{ lastName.errors | json }} </span>
+        <!-- <span *ngIf=(lastName.valid)> {{ lastName.valid | json }} </span> -->
+      </div>
+      <div class='inputs'>
+        *Email: 
+        <input
+          type="text" 
+          name="email" 
+          required 
+          pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+          maxlength="24"
+          [(ngModel)]="user.email"
+          #email='ngModel'
+        />
+        <span *ngIf=(email.errors)> {{ email.errors | json }} </span>
+        <!-- <span *ngIf=(email.valid)> {{ email.valid | json }} </span> -->
+      </div>
+      <div class='inputs'>
+        *Password: 
+        <input
+          type="text" 
+          name="password" 
+          required 
+          minlength="5" 
+          maxlength="24"
+          [(ngModel)]="user.password"
+          #password='ngModel'
+        />
+        <span *ngIf=(password.errors)> {{ password.errors | json }} </span>
+        <!-- <span *ngIf=(password.valid)> {{ password.valid | json }} </span> -->
+      </div>
+      <div class='inputs'>
+        *Password Confirmation: 
+        <input
+          type="text" 
+          name="passwordConfirm" 
+          required
+          [(ngModel)]="user.passwordConfirm"
+          #passwordConfirm='ngModel'
+        />
+        <span *ngIf='user.password !== user.passwordConfirm'> Passwords dont match </span>
+        <span *ngIf=(passwordConfirm.errors)> {{ passwordConfirm.errors | json }} </span>
+        <!-- <span *ngIf=(passwordConfirm.valid)> {{ passwordConfirm.valid | json }} </span> -->
+      </div>
+      <input class='green' [disabled]='RegData.invalid' type="submit" value="Register">
+    </form>
+  </fieldset>
+  
+</body>
+</html>
