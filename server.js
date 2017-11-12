@@ -14,5 +14,5 @@ var routes_setter = require('./server/config/routes')
 routes_setter(app)
 
 app.listen(port, function() {
-    console.log("listening to port" + port);
+    console.log("listening to port " + port);
 })

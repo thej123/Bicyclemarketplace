@@ -23,23 +23,25 @@
   </fieldset>
 
   <fieldset class=inline>
+      <span *ngIf=(loginAlert)>Invalid Login Details</span>
       <form (submit)="Login()" #LoginData='ngForm'>
           *Email: <input name='email'
           type="text"
           required
           pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"          
-          [(ngModel)]="login.email"
-          #email='ngModel'
+          [(ngModel)]="loginObject.email"
+          #Lemail='ngModel'
           />
-          <span *ngIf=(email.errors)> Give me valid email!</span>
+          <span *ngIf=(Lemail.errors)> Give me valid email!</span>
           <br>
           *Password <input name='password'
           type="text"
           required
           minlength="5"
-          [(ngModel)]="login.password"
+          [(ngModel)]="loginObject.password"
+          #Lpassword='ngModel'
           />  
-          <span *ngIf=(email.errors)> Please enter valid password!</span>
+          <span *ngIf=(Lpassword.errors)> Please enter valid password!</span>
           <br>
           <input class='green' [disabled]='LoginData.invalid' type="submit" value="Login">
       </form>
@@ -47,6 +49,7 @@
 
 
   <fieldset class=inline>
+    <span *ngIf=(regAlert)>Email already exist</span>
   <form (submit)="Register()"
   #RegData='ngForm'>
       <div class='inputs'>

@@ -1,0 +1,17 @@
+.inline {
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
+}
+h2{
+    color: blue;
+}
+fieldset {
+    margin: 20px;
+}
+input {
+    margin: 10px;
+}
+*{
+    background-color: lightblue
+}
