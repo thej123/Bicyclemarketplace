@@ -23,11 +23,11 @@ const routes: Routes = [
   component: ListingsComponent,
   children: []
 },
-// {
-//   path: '**',
-//   component: PagenotfoundComponent,
-//   children: []
-// },
+{
+  path: '**',
+  redirectTo: '',
+  children: []
+},
 
 
 ];

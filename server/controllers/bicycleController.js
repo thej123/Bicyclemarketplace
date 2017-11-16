@@ -31,12 +31,14 @@ module.exports = {
     },
 
     showall: function (req,res) {
+        console.log("inside showall")
         Bicycle.find({})
-        .populate('User')
+        .populate('User', 'firstName')
         .exec(function(err, data) {
             if(err) {
                 return res.json(err);
             }
+            console.log("hi:", data)
             res.json(data);
         })
     },

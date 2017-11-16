@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+// var User = require('../models/userModel')
 var Schema = mongoose.Schema
 
 var BicycleSchema = new Schema ({
@@ -6,7 +7,7 @@ var BicycleSchema = new Schema ({
     description: {type: String, required: [true, "Description missing"], maxlength: 200},
     price: {type: Number, required: [true, "Email is needed"]},
     location: {type: String, required: [true, "Password missing"]},
-    image: {type: String, required: [true, "Password missing"]},
+    image: {type: String},
     _creator: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',

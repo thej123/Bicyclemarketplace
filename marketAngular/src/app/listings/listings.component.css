@@ -1,0 +1,12 @@
+.inline {
+    display: inline-block;
+    width:25%;
+    vertical-align: top;
+}
+
+#green {
+    background-color: green;
+}
+#red {
+    background-color: red;
+}

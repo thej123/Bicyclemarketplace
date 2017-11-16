@@ -1,0 +1,13 @@
+.inline {
+    display: inline-block;
+    width:25%;
+    vertical-align: top;
+}
+
+#red {
+    background-color: red;
+}
+
+#yellow {
+    background-color: yellow;
+}

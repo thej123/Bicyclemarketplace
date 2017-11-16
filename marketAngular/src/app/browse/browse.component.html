@@ -1,3 +1,17 @@
-<p>
-  browse works!
-</p>
+<fieldset>
+    <fieldset *ngFor="let bike of allbikes">
+      <div class='inline' >
+        <h4>Image Upload</h4>
+      </div>
+      <div class='inline' >
+        <h2>{{bike.title}}</h2>
+        <h4>{{bike.description}}</h4>
+      </div>
+      <div class='inline'>
+        <h2>{{bike.price}}</h2>
+        <h4>{{bike.location}}</h4>
+        <button *ngIf='bike._creator != loggedUserID' id='yellow' (click)="Contact(bike._creator, bike._creator.firstName, bike)">Contact</button>
+        <button *ngIf='bike._creator == loggedUserID' id='red' (click)="DeleteBike(bike._id, allbikes.indexOf(bike))">Delete</button>
+      </div>
+    </fieldset>
+  </fieldset>

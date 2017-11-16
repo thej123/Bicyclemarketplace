@@ -12,7 +12,7 @@ module.exports = function(app) {
     app.post('/bicycle', bicycleController.create);
     app.get('/bicycle/:id', bicycleController.showmine);
     app.get('/bicycles', bicycleController.showall);
-    app.put('/bicyle/:id', bicycleController.update);
+    app.put('/bicycle/:id', bicycleController.update);
     app.delete('/bicycle/:id', bicycleController.delete)
     
     app.all("*", (req,res,next) => {

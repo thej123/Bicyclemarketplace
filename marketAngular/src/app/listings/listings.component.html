@@ -1,3 +1,82 @@
-<p>
-  listings works!
-</p>
+<fieldset>
+  <h1>Create Listing</h1>
+  <fieldset>
+    <form (submit)="CreateBike()" #BikeData='ngForm'>
+    <div class='inline' >
+      <h4>Image Upload</h4>
+      <input type="file"
+      name='image'
+      [(ngModel)] = "bicycle.image"
+      >
+    </div>
+    <div class='inline' >
+      <h4>Title</h4>
+      <input type="text"
+      required
+      name='title'
+      [(ngModel)] = "bicycle.title"
+      minlength="3">
+      <h4>Description</h4>
+      <textarea name="description"cols="30" rows="10"
+      required
+      [(ngModel)] = "bicycle.description"
+      maxlength="200"></textarea>
+    </div>
+    <div class='inline' >
+      <h4>Price</h4>
+      <input type="number"
+      required
+      name="price"
+      [(ngModel)] = "bicycle.price">
+      <h4>Location</h4>
+      <input type="text"
+      required
+      name="location"
+      [(ngModel)] = "bicycle.location"><br>
+      <input [disabled]="BikeData.invalid" type="submit" id='green' value="Create">
+    </div>
+    </form>
+  </fieldset>
+</fieldset>
+
+<fieldset>
+    <h1>Edit/Delete Listing</h1>
+    <fieldset *ngFor="let bike of bikes">
+      <form #updateBikeData='ngForm'>
+      <div class='inline' >
+        <h4>Image Upload</h4>
+        <input type="file"
+        name='image'
+        [(ngModel)] = "bike.image"
+        >
+      </div>
+      <div class='inline' >
+        <h4>Title</h4>
+        <input type="text"
+        required
+        name='title'
+        [(ngModel)] = "bike.title"
+        minlength="3">
+        <h4>Description</h4>
+        <textarea name="description"cols="30" rows="10"
+        required
+        [(ngModel)] = "bike.description"
+        maxlength="200"></textarea>
+      </div>
+      <div class='inline' >
+        <h4>Price</h4>
+        <input type="number"
+        required
+        name="price"
+        [(ngModel)] = "bike.price">
+        <h4>Location</h4>
+        <input type="text"
+        required
+        name="location"
+        [(ngModel)] = "bike.location"><br>
+        <button id='green' (click)="UpdateBike(bike._id, bikes.indexOf(bike))" >Update</button><br>
+        <button id='red' (click)="DeleteBike(bike._id, bikes.indexOf(bike))" >Delete</button>
+      </div>
+      </form>
+    </fieldset>
+  </fieldset>

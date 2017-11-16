@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { MarketService } from './../market.service';
 import { Router } from '@angular/router';
 import { User } from './../user'
