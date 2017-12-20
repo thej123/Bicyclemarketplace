@@ -3,7 +3,7 @@ Goal is to create a Platform to help users trade Bicycles.
 Created the Front End using AngularJS Framework - 
     Using Angular Core, Http, Routing, Service Singleton, Pipe filtering
 
-NodeJS Backend with Express, Rest Apis, MVC structure
+NodeJS Backend with Express, Rest Apis, MVC structure - 
 MongoDB Database with Mongoose Middleware
 
 Requirements:
